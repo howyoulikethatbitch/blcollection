@@ -23,6 +23,9 @@ import { allGenres, novels, type Novel } from './data/novels'
 type Theme = 'light' | 'night'
 type TextSize = 'small' | 'medium' | 'large'
 
+const azureLogo = `${import.meta.env.BASE_URL}assets/azure-logo.jpg`
+const azureBanner = `${import.meta.env.BASE_URL}assets/azure-bl-collection-banner.jpg`
+
 const navItems = [
   { label: 'Home', to: '/', icon: Flower2 },
   { label: 'Featured', to: '/featured', icon: Sparkles },
@@ -100,7 +103,7 @@ function Sidebar({ onClose }: { onClose: () => void }) {
     <aside className="sidebar">
       <div className="sidebar-brand">
         <Link to="/" className="brand-lockup" onClick={onClose}>
-          <span className="brand-mark"><span>✦</span></span>
+          <span className="brand-mark"><img src={azureLogo} alt="Azure Visual Novel Hub logo" /></span>
           <span><strong>AZURE</strong><small>BL COLLECTION</small></span>
         </Link>
         <button className="icon-button close-nav" onClick={onClose} aria-label="Close navigation"><X size={18} /></button>
@@ -156,7 +159,7 @@ function Home({ favorites, history, onFavorite, onRead }: CollectionProps & { hi
             <Link to="/about" className="button button-quiet">Our little story</Link>
           </div>
         </div>
-        <HeroArtwork />
+          <HeroBanner />
         <div className="hero-sprig">✦</div>
       </section>
       {latest && <ContinueReading novel={latest} onRead={onRead} />}
@@ -168,12 +171,10 @@ function Home({ favorites, history, onFavorite, onRead }: CollectionProps & { hi
   )
 }
 
-function HeroArtwork() {
-  return <div className="hero-art" aria-label="Decorative moonlit garden illustration">
-    <div className="art-glow" /><div className="art-moon">✦</div><div className="art-stars">·　✦　·<br />✧　 ·　✦</div>
-    <div className="art-hills" /><div className="art-flower flower-one">✿</div><div className="art-flower flower-two">✿</div><div className="art-flower flower-three">✿</div>
-    <div className="art-vines vine-one" /><div className="art-vines vine-two" /><span className="art-label">AZURE<br /><small>garden of stories</small></span>
-  </div>
+function HeroBanner() {
+  return <figure className="hero-banner">
+    <img src={azureBanner} alt="Azure BL Collection title over a glowing pixel-art night sky with flowers and floating islands" />
+  </figure>
 }
 
 function ContinueReading({ novel, onRead }: { novel: Novel; onRead: (novel: Novel) => void }) {

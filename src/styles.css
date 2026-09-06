@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Pixelify+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
 :root {
   font-family: 'DM Sans', sans-serif;
@@ -13,6 +13,7 @@
   --blue-deep: #4658aa;
   --lavender: #edf0ff;
   --pink: #f7e8f0;
+  --pixel: 'Pixelify Sans', 'DM Sans', sans-serif;
 }
 
 :root[data-theme='night'] {
@@ -40,6 +41,7 @@ a { color: inherit; text-decoration: none; }
 .brand-lockup strong { display: block; font: 600 16px/1 'DM Mono', monospace; letter-spacing: .08em; }
 .brand-lockup small { display: block; margin-top: 5px; color: var(--muted); font: 500 8px/1 'DM Mono', monospace; letter-spacing: .18em; }
 .brand-mark { display: grid; place-items: center; width: 32px; height: 32px; color: #fff; background: linear-gradient(145deg, #aab5f4, #6375c7); border-radius: 10px 10px 10px 3px; font-size: 17px; box-shadow: 0 5px 12px #7384d633; }
+.brand-mark img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 .sidebar-rule { position: relative; margin: 28px 0 25px; border-top: 1px solid var(--line); text-align: center; }
 .sidebar-rule span { position: relative; top: -11px; padding: 0 8px; color: #aab4e8; background: var(--panel); font-size: 14px; }
 .nav-label { margin: 0 11px 11px; color: #a6acc1; font: 500 9px 'DM Mono', monospace; letter-spacing: .18em; text-transform: uppercase; }
@@ -89,4 +91,98 @@ h1, h2, p { margin-top: 0; }.hero h1 { margin: 18px 0 17px; font: 500 clamp(48px
 }
 @media (max-width: 420px) {
   .hero h1 { font-size: 52px; }.novel-grid { gap: 9px; }.novel-grid .novel-card:last-child:nth-child(odd) .cover-art { height: 180px; }.cover-art { height: 155px; }.card-title { font-size: 14px; }.card-meta { display: block; line-height: 1.6; }.card-meta span { display: block; }.card-meta span + span { margin-top: 2px; }.section-heading h2 { font-size: 25px; }.text-link { font-size: 9px; }.detail-actions { align-items: stretch; flex-direction: column; }.detail-actions .button { width: 100%; }.segmented, .setting-row { align-items: flex-start; flex-direction: column; }.action-row { flex-direction: column; }.action-row button { justify-content: center; }.page-footer { gap: 9px; font-size: 8px; }
+}
+
+/* Azure's supplied artwork and soft pixel hierarchy */
+.brand-lockup strong,
+.nav-link,
+.button,
+.read-button,
+.hero h1,
+.section-heading h2,
+.page-intro h1,
+.card-title,
+.cover-words strong,
+.continue-copy strong,
+.genre-pill,
+.detail-copy h1,
+.setting-heading h2,
+.about-card h2,
+.about-facts > div > span,
+.empty-state h2 {
+  font-family: var(--pixel);
+}
+
+.brand-lockup strong { letter-spacing: .06em; }
+.nav-link { font-size: 13px; }
+.button { font-weight: 600; }
+.hero h1,
+.page-intro h1,
+.detail-copy h1 {
+  font-weight: 600;
+  letter-spacing: -.045em;
+}
+.section-heading h2,
+.setting-heading h2,
+.card-title,
+.continue-copy strong,
+.about-card h2,
+.empty-state h2 {
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+.hero h1 em { font-family: var(--pixel); font-style: italic; }
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(245px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(24px, 4vw, 58px);
+  min-height: unset;
+  padding: clamp(24px, 4vw, 46px);
+  background: linear-gradient(120deg, #142979 0%, #284cb1 50%, #7056bb 100%);
+}
+.hero-copy { min-width: 0; }
+.hero-banner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #111e61;
+  border: 1px solid #d9e4ff70;
+  border-radius: 13px;
+  box-shadow: 0 16px 35px #101c5c55;
+  transform: rotate(1deg);
+}
+.hero-banner::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px #ffffff24, inset 0 -35px 55px #141d6b22;
+}
+.hero-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1376 / 768;
+  object-fit: cover;
+}
+.hero-sprig { z-index: 2; }
+
+@media (max-width: 700px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 31px 22px 24px;
+  }
+  .hero-banner {
+    width: 100%;
+    transform: none;
+  }
+  .hero-sprig { right: 7%; }
+}
+
+@media (max-width: 420px) {
+  .hero { padding: 27px 18px 20px; }
 }

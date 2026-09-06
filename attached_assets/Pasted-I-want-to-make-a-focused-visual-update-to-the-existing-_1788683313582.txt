@@ -1,0 +1,267 @@
+I want to make a focused visual update to the existing Azure BL Collection project.
+
+IMPORTANT:
+Do NOT rebuild the application from scratch.
+Do NOT change the existing page structure, routing, features, data architecture, or functionality unless required for this visual update.
+Preserve everything that is currently working.
+
+The application is already deployed successfully to GitHub Pages at:
+
+https://howyoulikethatbitch.github.io/blcollection/
+
+This is a GitHub Pages static deployment, so all changes must remain compatible with the current Vite/React static deployment architecture.
+
+==================================================
+1. AZURE BRAND ASSETS
+==================================================
+
+I previously provided two image assets for this project:
+
+A. Azure app/logo icon:
+- Pixel-art rounded-square icon
+- Azure/blue/purple color palette
+- Flowers, petals, stars and magical elements
+- Contains the "Azure" branding and "Visual Novel Hub" text
+
+B. Azure BL Collection title/banner:
+- Wide pixel-art fantasy night-sky scene
+- Azure blue, purple, lavender and pink palette
+- Flowers, petals, stars, clouds and floating fantasy islands
+- Contains the "Azure BL Collection" title
+
+Use these supplied assets as the official visual identity of the application.
+
+DO NOT generate replacement artwork.
+DO NOT redesign these assets.
+DO NOT substitute generic icons or stock images.
+
+If the assets are not currently present in the project, create an appropriate assets directory and make it easy for me to place the files there.
+
+Use sensible filenames such as:
+
+/public/assets/azure-logo.png
+/public/assets/azure-bl-collection-banner.png
+
+If the actual uploaded filenames differ, use the appropriate actual filenames instead.
+
+==================================================
+2. APP ICON / FAVICON
+==================================================
+
+Use the Azure logo image as the website favicon/app icon.
+
+Update the HTML metadata so the browser tab displays the Azure logo.
+
+Also add appropriate metadata for the application where supported, while keeping the implementation compatible with GitHub Pages.
+
+The page title should be:
+
+Azure BL Collection
+
+Do not use the generic Vite/React title anywhere.
+
+==================================================
+3. AZURE COLLECTION BANNER
+==================================================
+
+Use the supplied Azure BL Collection banner prominently on the Home page.
+
+The banner should act as the primary visual hero/header artwork.
+
+Do NOT stretch or distort the image.
+
+Preserve its aspect ratio.
+
+Use responsive image behavior so it works properly on desktop, tablet and mobile.
+
+The banner should integrate naturally into the existing Azure visual design rather than looking like a separate image pasted onto the page.
+
+If the current Home page already has a hero section, update that existing section instead of creating a duplicate hero.
+
+==================================================
+4. PIXELATED TYPOGRAPHY
+==================================================
+
+The current application typography is not sufficiently pixel-art styled.
+
+Update the typography to better match the established Azure pixel-art aesthetic.
+
+Use a proper pixel/bitmap-style web font for:
+
+- Main headings
+- Section headings
+- Navigation labels where appropriate
+- Buttons
+- Novel titles
+- Important UI labels
+- Decorative text
+
+Use a readable complementary font for:
+
+- Long descriptions
+- Paragraphs
+- Settings explanations
+- About-page body text
+- Other reading-heavy content
+
+IMPORTANT:
+Do NOT use the pixel font for large paragraphs because readability is more important.
+
+Recommended visual hierarchy:
+
+PIXEL FONT:
+Azure BL Collection
+Home
+Featured
+BL Novels
+Genres
+Favorites
+Settings
+About
+Novel titles
+Buttons
+Section headings
+
+READABLE FONT:
+Descriptions
+Metadata explanations
+About-page paragraphs
+Settings descriptions
+Long-form text
+
+Choose a polished pixel font that fits the existing visual identity. Prefer a well-supported font such as "Pixelify Sans", "Silkscreen", or another appropriate pixel font available through the project's package/dependency system.
+
+Do not introduce unnecessary font libraries if a clean CSS/web-font implementation is sufficient.
+
+==================================================
+5. TYPOGRAPHY STYLE
+==================================================
+
+The pixel typography should feel:
+
+- Romantic
+- Fantasy-like
+- Charming
+- Pixel-art inspired
+- Soft rather than aggressive
+- Consistent with the supplied Azure artwork
+
+Avoid fonts that look overly arcade-like or harsh unless they fit the design.
+
+The title "Azure BL Collection" should have a strong pixel-art/fantasy presentation.
+
+Maintain good readability and spacing.
+
+==================================================
+6. COLOR CONSISTENCY
+==================================================
+
+Ensure the typography and UI continue using the established Azure palette:
+
+- Azure blue
+- Deep blue
+- Blue-violet
+- Lavender
+- Soft pink/petal accents
+- White/light highlights
+
+Do not introduce unrelated colors.
+
+The new typography should visually belong to the existing artwork.
+
+==================================================
+7. ACCESSIBILITY
+==================================================
+
+For both supplied images:
+
+- Provide meaningful alt text.
+- Do not use images as the only way to communicate important information.
+- Maintain sufficient text contrast.
+- Keep text readable on top of artwork.
+
+==================================================
+8. RESPONSIVE BEHAVIOR
+==================================================
+
+The application remains desktop-first but must remain responsive.
+
+Check:
+
+- Desktop
+- Tablet
+- Mobile
+
+The banner must not become distorted or unusable at smaller widths.
+
+Navigation and pixel typography should remain readable.
+
+Do not allow large pixel-font headings to overflow horizontally.
+
+==================================================
+9. GITHUB PAGES COMPATIBILITY
+==================================================
+
+Do not break the existing GitHub Pages deployment.
+
+The application currently runs at:
+
+https://howyoulikethatbitch.github.io/blcollection/
+
+Make sure asset paths work correctly under the /blcollection/ base path.
+
+Do not assume the application is hosted at the domain root.
+
+Verify that:
+
+- Logo loads correctly
+- Favicon loads correctly
+- Banner loads correctly
+- Fonts load correctly
+- CSS loads correctly
+- Routes continue working
+- Existing assets continue working
+
+==================================================
+10. DO NOT CHANGE
+==================================================
+
+Do NOT remove or rewrite:
+
+- Existing navigation
+- Existing pages
+- Favorites functionality
+- Settings functionality
+- Genre functionality
+- Novel data structure
+- Placeholder novel system
+- GitHub Pages configuration
+- Existing responsive behavior
+
+unless a very small modification is necessary to integrate the new branding.
+
+Do not add a backend.
+Do not add authentication.
+Do not add a database.
+Do not add unrelated features.
+
+==================================================
+11. FINAL QUALITY CHECK
+==================================================
+
+After implementing the changes:
+
+1. Check the project for build errors.
+2. Run the application.
+3. Confirm the supplied logo is being used.
+4. Confirm the supplied banner is being used.
+5. Confirm the favicon is configured.
+6. Confirm the page title is "Azure BL Collection".
+7. Confirm pixel typography is applied to headings/UI.
+8. Confirm body text remains readable.
+9. Confirm the /blcollection/ GitHub Pages base path is respected.
+10. Confirm no existing functionality was broken.
+
+Before making changes, inspect the current project structure and reuse the existing architecture wherever possible.
+
+This is a visual refinement pass, NOT a rebuild.
