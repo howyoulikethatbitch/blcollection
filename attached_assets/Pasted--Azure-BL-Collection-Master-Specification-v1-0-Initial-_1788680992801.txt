@@ -1,0 +1,745 @@
+# 💠 Azure BL Collection
+
+## Master Specification v1.0 — Initial Main Web App
+
+### 1. Project Purpose
+
+**Azure BL Collection** is a personal, browser-based library and launch hub for a collection of independently hosted **BL visual novels**.
+
+The Collection itself is **not a visual novel player**.
+
+Instead, it provides an attractive library where each novel has its own separate web application.
+
+```text
+                 AZURE BL COLLECTION
+                    GitHub Pages
+                         │
+             ┌───────────┼───────────┐
+             │           │           │
+           READ        READ        READ
+             │           │           │
+             ▼           ▼           ▼
+          BL VN #1    BL VN #2    BL VN #3
+             │           │           │
+       GitHub Pages GitHub Pages GitHub Pages
+```
+
+Each individual VN will be developed separately in the future.
+
+---
+
+# 2. Platform & Deployment
+
+### Main application
+
+**Azure BL Collection**
+
+* Web application
+* GitHub repository
+* GitHub Pages deployment
+* Static/client-side architecture
+* No backend required for MVP
+* No account system
+* No sign-up
+* No login
+
+### Development
+
+**Replit + Replit AI**
+
+Replit is the AI-assisted development environment.
+
+GitHub is the source repository/deployment destination.
+
+```text
+You
+ ↓
+Replit AI
+ ↓
+GitHub Repository
+ ↓
+GitHub Pages
+ ↓
+Azure BL Collection
+```
+
+---
+
+# 3. Target Audience
+
+**General BL readers.**
+
+Although the initial purpose is personal use, the design should be polished enough that the website can eventually be made publicly accessible.
+
+Therefore:
+
+> Build it as a personal application **without making it look like a temporary personal project.**
+
+---
+
+# 4. Overall Aesthetic
+
+## Core theme
+
+**Romantic Azure Fantasy Pixel Art**
+
+The visual identity combines:
+
+* Azure blue
+* Blue-violet
+* Lavender
+* Soft pink
+* White
+* Flowers
+* Petals
+* Stars
+* Night skies
+* Fantasy scenery
+* Pixel-art elements
+
+The supplied logo and banner establish the visual foundation.
+
+The overall feeling should be:
+
+> **A dreamy pixel-art garden where BL visual novels bloom as stories.**
+
+---
+
+# 5. Pixel-Art Usage
+
+The style should be **moderate**, not overwhelming.
+
+Pixel art should appear throughout:
+
+* decorative elements
+* icons
+* buttons
+* headings
+* cards
+* borders
+* backgrounds
+* small animations
+* petals
+* stars
+* UI accents
+
+### Pixelated typography
+
+Yes.
+
+Pixel-style fonts should be used especially for:
+
+* Logo/title treatments
+* Section headings
+* Buttons
+* Labels
+* Decorative text
+* Novel titles where appropriate
+
+However, long descriptions and other reading-heavy UI should prioritize readability.
+
+So we'll use a **pixel + readable font pairing** rather than forcing every paragraph into a pixel font.
+
+---
+
+# 6. Main Navigation
+
+The primary navigation is:
+
+```text
+HOME
+FEATURED
+BL NOVELS — LONG
+BL NOVELS — SHORT
+GENRES
+FAVORITES
+SETTINGS
+ABOUT
+```
+
+The navigation should remain intuitive and responsive.
+
+---
+
+# 7. Home Page
+
+The Home page should function as the welcoming "entrance" to Azure.
+
+General structure:
+
+```text
+┌─────────────────────────────────────────┐
+│              AZURE HEADER               │
+│                                         │
+│        AZURE BL COLLECTION              │
+│                                         │
+│       [ Hero/Banner Artwork ]           │
+│                                         │
+│         ✦ Stories Bloom Here ✦          │
+└─────────────────────────────────────────┘
+
+                 FEATURED
+
+       ┌─────┐ ┌─────┐ ┌─────┐
+       │ VN  │ │ VN  │ │ VN  │
+       └─────┘ └─────┘ └─────┘
+
+
+              LONG NOVELS
+               12 CHAPTERS
+
+       ┌─────┐ ┌─────┐ ┌─────┐
+       │ VN  │ │ VN  │ │ VN  │
+       └─────┘ └─────┘ └─────┘
+
+
+              SHORT NOVELS
+                8 CHAPTERS
+
+       ┌─────┐ ┌─────┐ ┌─────┐
+       │ VN  │ │ VN  │ │ VN  │
+       └─────┘ └─────┘ └─────┘
+```
+
+At the beginning, these sections can contain placeholders.
+
+---
+
+# 8. Featured System
+
+Featured novels are **manually designated**.
+
+Each novel's data can eventually contain something equivalent to:
+
+```text
+featured: true
+```
+
+or
+
+```text
+featured: false
+```
+
+This means you control exactly which stories appear in Featured.
+
+No algorithm is necessary.
+
+---
+
+# 9. Long & Short Collections
+
+These are strict collection rules.
+
+### 🌙 Long BL Novels
+
+**Exactly 12 chapters**
+
+Designed as longer reading experiences.
+
+### 🌸 Short BL Novels
+
+**Exactly 8 chapters**
+
+Designed as one-sitting/shorter experiences.
+
+The collection should clearly communicate this distinction.
+
+---
+
+# 10. Novel Cards
+
+Each novel card should prominently display:
+
+```text
+┌────────────────────────┐
+│                        │
+│       COVER ART        │
+│                        │
+├────────────────────────┤
+│ Novel Title            │
+│ Fantasy • Romance      │
+│ 12 Chapters            │
+│                        │
+│        [ READ ]        │
+└────────────────────────┘
+```
+
+Core card information:
+
+* Cover
+* Title
+* Genre
+* Chapter count
+* Read button
+
+Additional metadata can appear on the novel's details view.
+
+---
+
+# 11. Novel Metadata
+
+The data structure should be scalable enough to eventually support:
+
+```text
+Title
+Description
+Cover
+Collection Type
+Chapter Count
+Genres
+Tags/Tropes
+Content Rating
+Content Warnings
+Status
+Featured
+VN URL
+```
+
+Potentially later:
+
+```text
+Author
+Release Date
+Last Updated
+Character Information
+Screenshots
+```
+
+But these aren't required for the first MVP.
+
+---
+
+# 12. Genres & Tropes
+
+The application will support both.
+
+### Genres
+
+Examples:
+
+* Romance
+* Fantasy
+* Drama
+* Comedy
+* Mystery
+* Supernatural
+* Historical
+* Sci-Fi
+
+### Tags/Tropes
+
+Examples:
+
+* Slow Burn
+* Friends to Lovers
+* Enemies to Lovers
+* Childhood Friends
+* Second Chance
+* Fake Dating
+
+The actual list can grow as your VN collection grows.
+
+---
+
+# 13. Genres Page
+
+The Genres page should allow users to select a genre and view novels belonging to it.
+
+Conceptually:
+
+```text
+                  GENRES
+
+       ┌────────────┐ ┌────────────┐
+       │  ROMANCE   │ │  FANTASY   │
+       └────────────┘ └────────────┘
+
+       ┌────────────┐ ┌────────────┐
+       │   DRAMA    │ │  MYSTERY   │
+       └────────────┘ └────────────┘
+
+       ┌────────────┐ ┌────────────┐
+       │  COMEDY    │ │ SUPERNAT.  │
+       └────────────┘ └────────────┘
+```
+
+Selecting one filters the collection.
+
+---
+
+# 14. Content Rating
+
+The collection will support content ratings because different VNs may have different themes.
+
+The important global rule is:
+
+> **No explicit sexual content.**
+
+The rating system is primarily for communicating thematic intensity, such as:
+
+* mature emotional themes
+* violence
+* death
+* psychological themes
+* darker subject matter
+
+We'll keep the exact labels flexible until we finalize the content taxonomy.
+
+---
+
+# 15. Read Button
+
+This is an especially important architectural requirement.
+
+The Collection does **not** embed the VN.
+
+Instead:
+
+```text
+[ READ ]
+    ↓
+opens the VN's separate GitHub Pages website
+```
+
+The VN should open in a **new browser tab**.
+
+This leaves Azure BL Collection available in the original tab.
+
+---
+
+# 16. Placeholder System
+
+Because the collection will initially have no real VNs, the site should support beautiful placeholder entries.
+
+Example:
+
+```text
+┌─────────────────────┐
+│                     │
+│     🌸 COMING SOON  │
+│                     │
+│  A new story is     │
+│  waiting to bloom.  │
+│                     │
+└─────────────────────┘
+```
+
+The user also wants the ability to eventually add/change cover artwork conveniently.
+
+### Important implementation principle
+
+We should **not pretend that a browser upload permanently modifies GitHub Pages**.
+
+For MVP, we'll design the data/assets system so covers can be added to the repository cleanly.
+
+A future content-management/upload workflow can be added if desired.
+
+---
+
+# 17. Favorites
+
+Favorites are required.
+
+Because there are no user accounts, favorites should use **browser local storage**.
+
+Conceptually:
+
+```text
+Novel
+ ↓
+♡ Favorite
+ ↓
+Browser Local Storage
+ ↓
+Favorites page
+```
+
+No server or database is necessary.
+
+---
+
+# 18. Continue Reading / History
+
+Also required.
+
+The browser can remember things such as:
+
+* Last opened VN
+* Last opened chapter/page where applicable
+* Reading progress
+* Recently accessed novels
+
+Again, this can be handled locally.
+
+---
+
+# 19. Settings
+
+Settings should initially focus on personal experience.
+
+Potential structure:
+
+```text
+SETTINGS
+
+Appearance
+ ├── Azure Light
+ └── Azure Night
+
+Animations
+ └── On / Off
+
+Text Size
+ ├── Small
+ ├── Medium
+ └── Large
+
+Library
+ ├── Clear Favorites
+ ├── Clear Reading History
+ └── Reset Local Data
+```
+
+We can expand this later.
+
+---
+
+# 20. About
+
+The About page should use the **combination approach**:
+
+### Informative + Azure-world flavor
+
+It shouldn't be pure fantasy lore, nor should it feel like a corporate "About Us" page.
+
+Something along the lines of:
+
+> **Welcome to Azure BL Collection.**
+>
+> A personal garden of BL visual novels, where every story is a little world waiting to bloom.
+
+Then provide practical information about the collection.
+
+The exact copy can be written later.
+
+---
+
+# 21. Empty States
+
+Empty sections should have the cute/poetic Azure personality.
+
+Instead of:
+
+> "No novels found."
+
+We might use:
+
+> 🌸 **The garden is still growing...**
+> New stories will bloom here soon.
+
+Favorites:
+
+> 💙 **No stories have found their way into your garden yet.**
+
+Featured:
+
+> ✨ **The stars are waiting for their next story.**
+
+We'll make sure the wording remains cute without becoming confusing.
+
+---
+
+# 22. Responsive Design
+
+The app must be responsive.
+
+Priority:
+
+**1. Desktop**
+**2. Tablet**
+**3. Mobile**
+
+Since you're developing primarily on desktop, desktop is where we'll carefully tune the layout first.
+
+However, the site should not be designed in a way that requires a future mobile rebuild.
+
+---
+
+# 23. Animation
+
+Moderate animation.
+
+Possible effects:
+
+* Floating petals
+* Subtle star twinkles
+* Card hover animations
+* Button interactions
+* Gentle page transitions
+* Pixel-art decorative motion
+
+Avoid:
+
+* excessive motion
+* constant flashing
+* distracting backgrounds
+* animations that interfere with navigation
+
+Settings should eventually allow animations to be disabled.
+
+---
+
+# 24. Audio
+
+**No audio for Azure BL Collection MVP.**
+
+Individual visual novels can have their own audio systems later.
+
+This keeps the collection simple and avoids unnecessary asset/licensing complexity.
+
+---
+
+# 25. Content Data Architecture
+
+This is one of the most important technical decisions.
+
+We'll use a **data-driven collection**, rather than hardcoding individual novels into every page.
+
+Conceptually:
+
+```text
+src/
+│
+├── data/
+│   └── novels.json
+│
+├── assets/
+│   ├── logo/
+│   ├── banners/
+│   ├── covers/
+│   ├── icons/
+│   └── decorations/
+│
+├── pages/
+│
+└── components/
+```
+
+The exact technology/file structure will be determined by Replit during implementation, but the principle is:
+
+> **Novel information should live in structured data, not be scattered throughout the UI code.**
+
+So adding Novel #10 shouldn't require manually rebuilding the Home page.
+
+---
+
+# 26. Example Novel Data
+
+Conceptually, a novel entry might look like:
+
+```text
+{
+  title: "Example Novel",
+  type: "long",
+  chapterCount: 12,
+  genres: ["Fantasy", "Romance"],
+  tags: ["Slow Burn", "Friends to Lovers"],
+  description: "...",
+  cover: "...",
+  featured: true,
+  status: "Coming Soon",
+  vnUrl: "..."
+}
+```
+
+This is **not necessarily the exact code we'll use**.
+
+It's the data model we're aiming for.
+
+---
+
+# 27. Scalability
+
+The MVP should comfortably support the future transition from:
+
+```text
+3 novels
+```
+
+to:
+
+```text
+10 novels
+```
+
+to:
+
+```text
+30+ novels
+```
+
+without requiring a fundamental redesign.
+
+However, we're **not** building a complicated database/backend just because it might be useful someday.
+
+The principle is:
+
+> **Simple now, scalable where it matters.**
+
+---
+
+# 28. Things deliberately NOT in MVP
+
+We should explicitly protect the project from feature creep.
+
+Not initially:
+
+* User accounts
+* Login
+* Sign-up
+* Backend
+* Online database
+* Payments
+* Comments
+* Social features
+* Chat
+* Audio for the collection
+* AI story generation inside the collection
+* Built-in VN engine
+* VN editor
+* Admin dashboard
+* Complex analytics
+* Recommendation algorithms
+
+Those can all be reconsidered later.
+
+---
+
+# 29. Most important architecture rule
+
+I'm going to make this a permanent project rule:
+
+> ### **Azure BL Collection and individual BL visual novels are separate projects.**
+
+The Collection is the **library/launcher**.
+
+The VNs are **independent web applications**.
+
+For example:
+
+```text
+GitHub
+│
+├── azure-bl-collection
+│
+├── vn-moonlit-garden
+│
+├── vn-summer-rain
+│
+├── vn-blue-hour
+│
+└── vn-untitled
+```
+
+Each can have its own GitHub Pages deployment.
