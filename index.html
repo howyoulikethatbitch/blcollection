@@ -8,6 +8,17 @@
     <link rel="icon" type="image/jpeg" href="./assets/azure-logo.jpg" />
     <link rel="apple-touch-icon" href="./assets/azure-logo.jpg" />
     <title>Azure BL Collection</title>
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem('azure-theme');
+          const prefersNight = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = saved === 'night' || (saved !== 'light' && prefersNight) ? 'night' : 'light';
+        } catch {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

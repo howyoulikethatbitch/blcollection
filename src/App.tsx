@@ -9,6 +9,7 @@ import {
   Info,
   LibraryBig,
   Menu,
+  Monitor,
   Moon,
   Search,
   Settings as SettingsIcon,
@@ -20,7 +21,7 @@ import {
 import { Link, NavLink, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { allGenres, novels, type Novel } from './data/novels'
 
-type Theme = 'light' | 'night'
+type Theme = 'light' | 'night' | 'system'
 type TextSize = 'small' | 'medium' | 'large'
 
 const azureLogo = `${import.meta.env.BASE_URL}assets/azure-logo.jpg`
@@ -43,10 +44,15 @@ const readStorage = (key: string, fallback: string[] = []) => {
   }
 }
 
+const readTheme = (): Theme => {
+  const saved = localStorage.getItem('azure-theme')
+  return saved === 'light' || saved === 'night' || saved === 'system' ? saved : 'system'
+}
+
 function App() {
   const [favorites, setFavorites] = useState<string[]>(() => readStorage('azure-favorites'))
   const [history, setHistory] = useState<string[]>(() => readStorage('azure-history'))
-  const [theme, setTheme] = useState<Theme>(() => localStorage.getItem('azure-theme') as Theme || 'light')
+  const [theme, setTheme] = useState<Theme>(readTheme)
   const [textSize, setTextSize] = useState<TextSize>(() => localStorage.getItem('azure-text-size') as TextSize || 'medium')
   const [animations, setAnimations] = useState(() => localStorage.getItem('azure-animations') !== 'off')
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -55,7 +61,15 @@ function App() {
   useEffect(() => localStorage.setItem('azure-history', JSON.stringify(history)), [history])
   useEffect(() => {
     localStorage.setItem('azure-theme', theme)
-    document.documentElement.dataset.theme = theme
+    const media = window.matchMedia('(prefers-color-scheme: dark)')
+    const applyTheme = () => {
+      document.documentElement.dataset.theme = theme === 'system' ? (media.matches ? 'night' : 'light') : theme
+    }
+    applyTheme()
+    if (theme === 'system') {
+      media.addEventListener('change', applyTheme)
+      return () => media.removeEventListener('change', applyTheme)
+    }
   }, [theme])
   useEffect(() => {
     localStorage.setItem('azure-text-size', textSize)
@@ -254,7 +268,7 @@ function NovelPage({ favorites, onFavorite, onRead }: CollectionProps) {
 
 function SettingsPage({ theme, setTheme, textSize, setTextSize, animations, setAnimations, clearFavorites, clearHistory, reset }: { theme: Theme; setTheme: (value: Theme) => void; textSize: TextSize; setTextSize: (value: TextSize) => void; animations: boolean; setAnimations: (value: boolean) => void; clearFavorites: () => void; clearHistory: () => void; reset: () => void }) {
   return <div className="page inner-page narrow-page"><PageIntro eyebrow="Make it yours" title="Settings" description="A few gentle controls for making your library feel at home." /><div className="settings-list">
-    <SettingGroup title="Appearance" icon={<Sun size={18} />}><div className="segmented"><button className={theme === 'light' ? 'selected' : ''} onClick={() => setTheme('light')}><Sun size={16} /> Azure light</button><button className={theme === 'night' ? 'selected' : ''} onClick={() => setTheme('night')}><Moon size={16} /> Azure night</button></div></SettingGroup>
+    <SettingGroup title="Appearance" icon={<Sun size={18} />}><p className="setting-description">Choose how Azure BL Collection should look.</p><div className="segmented appearance-options"><button className={theme === 'light' ? 'selected' : ''} onClick={() => setTheme('light')}><Sun size={16} /> Azure Light</button><button className={theme === 'night' ? 'selected' : ''} onClick={() => setTheme('night')}><Moon size={16} /> Azure Night</button><button className={theme === 'system' ? 'selected' : ''} onClick={() => setTheme('system')}><Monitor size={16} /> System Default</button></div>{theme === 'system' && <small className="setting-hint">Follow your device's appearance setting.</small>}</SettingGroup>
     <SettingGroup title="Reading comfort" icon={<BookOpen size={18} />}><div className="setting-row"><span><strong>Text size</strong><small>Adjust the words to your perfect size.</small></span><div className="text-size-options">{(['small', 'medium', 'large'] as TextSize[]).map((size) => <button key={size} className={textSize === size ? 'selected' : ''} onClick={() => setTextSize(size)}>{size[0].toUpperCase() + size.slice(1)}</button>)}</div></div><div className="setting-row"><span><strong>Little animations</strong><small>Let petals and stars gently move around you.</small></span><button className={`toggle ${animations ? 'on' : ''}`} onClick={() => setAnimations(!animations)} aria-label="Toggle animations"><span /></button></div></SettingGroup>
     <SettingGroup title="Library" icon={<Heart size={18} />}><div className="action-row"><button onClick={clearFavorites}>Clear favorites</button><button onClick={clearHistory}>Clear reading history</button><button className="danger-action" onClick={reset}>Reset local data</button></div></SettingGroup>
   </div></div>

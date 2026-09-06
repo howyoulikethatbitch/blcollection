@@ -1,0 +1,303 @@
+I want you to refine and fix the visual appearance of the existing Azure BL Collection app.
+
+IMPORTANT:
+- Do NOT rebuild the application.
+- Do NOT change the existing navigation, routing, features, data structure, functionality, or page structure.
+- Do NOT remove any existing settings.
+- This is a visual/theme refinement only.
+- Preserve the existing Azure BL Collection branding, logo, banner, pixel-art aesthetic, and pixel fonts.
+- Keep the app compatible with GitHub Pages and the existing /blcollection/ base path.
+
+I have attached a screenshot of the current Settings page for reference.
+
+CURRENT PROBLEM:
+The current light appearance has very poor visual contrast. Several headings, section titles, labels, and controls are extremely pale against the light background, making them difficult to read.
+
+The dark appearance also needs to feel like a properly designed dark theme rather than simply inverting or dimming the light theme.
+
+Please redesign the color system and theme implementation so BOTH light and dark appearances are polished, readable, cohesive, and accessible.
+
+==================================================
+1. LIGHT / AZURE LIGHT THEME
+==================================================
+
+Create a warm, dreamy Azure-themed light appearance.
+
+The page background should be a very light cool blue/lavender-white rather than pure white.
+
+Suggested direction:
+- Main background: very pale blue/lavender
+- Main text: dark navy/blue-violet
+- Secondary text: muted blue-violet
+- Headings: strong blue-violet/navy
+- Borders/dividers: soft blue/lavender with enough contrast to remain visible
+- Cards/panels: slightly different from the page background so they have subtle depth
+- Primary buttons: Azure/deep blue
+- Active navigation item: soft azure/lavender background with strong readable text
+- Icons: readable blue-violet
+- Accent color: azure blue
+- Romantic accent: subtle petal pink/lavender where appropriate
+
+DO NOT use extremely pale text for important headings.
+
+For example, the current:
+"Settings"
+"Appearance"
+"Reading comfort"
+"Text size"
+"Little animations"
+
+should all have clearly readable contrast in Azure Light.
+
+The aesthetic should remain soft and dreamy, but readability always takes priority.
+
+==================================================
+2. DARK / AZURE NIGHT THEME
+==================================================
+
+Create a dedicated Azure Night theme.
+
+Do NOT simply invert the light theme.
+
+The dark theme should feel like a dreamy azure night garden / visual novel library.
+
+Suggested palette:
+- Background: very deep navy / blue-violet
+- Sidebar: slightly darker navy
+- Header: deep blue-violet
+- Cards/panels: slightly lighter navy
+- Main text: soft white / pale lavender
+- Secondary text: muted lavender-blue
+- Headings: pale lavender or soft azure
+- Borders: subtle blue-violet
+- Primary accent: azure blue
+- Secondary accent: lavender
+- Small decorative accents: soft petal pink where appropriate
+
+Maintain enough contrast that all text is comfortably readable.
+
+The dark theme should feel elegant and atmospheric, NOT black-and-neon.
+
+Avoid pure black backgrounds and avoid excessively bright neon colors.
+
+==================================================
+3. THEME SYSTEM
+==================================================
+
+Implement the appearance system cleanly using the existing React architecture.
+
+There should be three conceptual appearance states:
+
+1. Azure Light
+2. Azure Night
+3. System Default
+
+The Settings page should allow the user to select:
+- Azure Light
+- Azure Night
+- System Default
+
+"System Default" means the app automatically follows the user's operating-system/browser color preference using prefers-color-scheme.
+
+IMPORTANT:
+- If the user's system is set to light, use Azure Light.
+- If the user's system is set to dark, use Azure Night.
+- If the user manually selects Azure Light or Azure Night, that choice overrides the system preference.
+- Persist the user's selection using localStorage.
+- If no preference has ever been saved, the default should be "System Default".
+
+Do NOT default every user to dark mode or light mode regardless of their system preference.
+
+The initial experience should therefore automatically match the user's device.
+
+==================================================
+4. SETTINGS UI
+==================================================
+
+Keep the existing Appearance section, but improve its presentation.
+
+The three options should be visually clear:
+
+[ ☀ Azure Light ]   [ ☾ Azure Night ]   [ ◐ System Default ]
+
+Use the existing visual language and Lucide icons.
+
+The selected option should have an obvious active state.
+
+The active state should work correctly in BOTH themes.
+
+Add a small explanatory description if appropriate:
+
+"Choose how Azure BL Collection should look."
+
+For System Default, optionally show:
+
+"Follow your device's appearance setting."
+
+Do not make the settings controls excessively large.
+
+==================================================
+5. CONTRAST AND READABILITY
+==================================================
+
+Audit the entire Settings page for contrast problems.
+
+Pay particular attention to:
+
+- Page title
+- Section headings
+- Small labels
+- Descriptions
+- Navigation text
+- Breadcrumbs
+- Buttons
+- Toggle labels
+- Toggle descriptions
+- Dividers
+- Icons
+- Active navigation state
+- Form controls
+
+Do not use low-opacity text for important information.
+
+Do not use opacity as a substitute for proper color hierarchy.
+
+Small text must remain readable.
+
+The page should feel soft without becoming washed out.
+
+==================================================
+6. DESIGN TOKENS / COLOR VARIABLES
+==================================================
+
+If the current implementation does not already have a clean theme/token system, introduce one.
+
+Prefer semantic variables such as:
+
+--background
+--foreground
+--muted-foreground
+--surface
+--surface-hover
+--border
+--primary
+--primary-foreground
+--accent
+--accent-foreground
+--sidebar-background
+--sidebar-foreground
+--sidebar-active
+--header-background
+
+Then define appropriate values for Azure Light and Azure Night.
+
+Do not scatter arbitrary hard-coded colors throughout components.
+
+This will make it easier to maintain the app as more pages are added.
+
+==================================================
+7. KEEP THE AZURE PERSONALITY
+==================================================
+
+The visual identity should remain:
+
+- Azure blue
+- Deep blue
+- Blue-violet
+- Lavender
+- Soft petal pink accents
+- Dreamy fantasy atmosphere
+- Pixel-art influence
+- Romantic BL visual novel library
+- Cozy rather than corporate
+
+However, do NOT make every element colorful.
+
+Use a restrained palette with clear hierarchy.
+
+The interface should feel like a polished visual novel library, not an arcade game.
+
+==================================================
+8. ANIMATIONS
+==================================================
+
+Keep the existing animation setting.
+
+When animations are enabled:
+- Preserve subtle transitions
+- Keep hover states gentle
+- Allow existing decorative petals/stars to move subtly
+
+When animations are disabled:
+- Respect the setting and disable/reduce non-essential decorative motion and transitions.
+
+Do not add excessive new animation.
+
+==================================================
+9. ACCESSIBILITY
+==================================================
+
+Please make the revised themes accessible.
+
+Check:
+- Text/background contrast
+- Button contrast
+- Active/inactive states
+- Focus states
+- Hover states
+- Form controls
+- Toggle visibility
+
+Do not sacrifice readability for the pastel aesthetic.
+
+==================================================
+10. RESPONSIVE BEHAVIOR
+==================================================
+
+Do not break the existing responsive layout.
+
+The revised colors/themes must work correctly on:
+- Desktop
+- Tablet
+- Mobile
+
+==================================================
+11. IMPORTANT TECHNICAL REQUIREMENTS
+==================================================
+
+Before finishing:
+
+- Confirm the existing React/TypeScript architecture is preserved.
+- Confirm React Router behavior is unchanged.
+- Confirm localStorage persistence works.
+- Confirm System Default uses prefers-color-scheme.
+- Confirm manually selected themes override System Default.
+- Confirm a fresh installation with no saved preference starts in System Default.
+- Confirm the selected theme remains after refreshing the page.
+- Confirm the theme applies consistently across ALL pages, not only Settings.
+- Confirm there is no flash of the wrong theme during initial page load if reasonably avoidable.
+- Confirm GitHub Pages deployment under /blcollection/ still works.
+- Run the production build.
+
+Do not introduce a backend, database, authentication, or unnecessary dependencies.
+
+==================================================
+12. FINAL VISUAL GOAL
+==================================================
+
+The final result should feel like:
+
+AZURE LIGHT
+A dreamy pale-blue/lavender visual novel library in daylight.
+
+AZURE NIGHT
+A calm, romantic, deep-blue fantasy garden at night.
+
+Both should clearly belong to the same Azure BL Collection brand.
+
+Most importantly:
+DO NOT let text become so pale that it disappears into the background.
+
+Use the attached screenshot as the reference for what needs to be corrected, but improve the entire theme system rather than patching individual text colors one by one.
+
+After implementation, test both Azure Light, Azure Night, and System Default and report what was changed.
