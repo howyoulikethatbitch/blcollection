@@ -1,1 +1,2 @@
 - [Post-merge setup](post-merge-hooks.md) — imported projects with workflows need an explicit non-interactive post-merge script configured in `.replit`.
+- [Public lockfile registry](public-lockfile-registry.md) — imported JavaScript projects may carry Replit-only package URLs that break external CI.
