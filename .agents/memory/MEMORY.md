@@ -1,0 +1,1 @@
+- [Post-merge setup](post-merge-hooks.md) — imported projects with workflows need an explicit non-interactive post-merge script configured in `.replit`.
